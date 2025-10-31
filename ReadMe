@@ -1,0 +1,175 @@
+# Travel Itinerary Generator 🌍✈️
+
+## Project Overview
+The Travel Itinerary Generator is a web application that creates personalized travel schedules based on user preferences. It integrates data from multiple sources (Google Places API and TripAdvisor) to provide intelligent, customized travel recommendations.
+
+## Features ✨
+- 🎯 Personalized itinerary generation
+- 📍 Multi-source location data integration
+- ⭐ Smart review analysis
+- 🕒 Time-aware scheduling
+- 💰 Budget-based recommendations
+- 📊 User preference matching
+- 📱 Responsive web interface
+
+## Tech Stack 🛠️
+- **Backend**: Python, Flask
+- **Frontend**: HTML, CSS, JavaScript
+- **APIs**: Google Places API, TripAdvisor API
+- **Analysis**: NLTK, scikit-learn
+- **Data Processing**: NumPy, Pandas
+
+## Prerequisites 📋
+- Python 3.8+
+- Google Places API key
+- RapidAPI key (for TripAdvisor)
+- pip (Python package manager)
+
+## Installation 💻
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/travel-itinerary-generator.git
+   cd travel-itinerary-generator
+   ```
+
+2. **Create and activate virtual environment**
+   ```bash
+   python -m venv venv
+   
+   # Windows
+   venv\Scripts\activate
+   
+   # Linux/MacOS
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environment variables**
+   Create a `.env` file in the project root:
+   ```env
+   GOOGLE_PLACES_API_KEY=your_google_api_key
+   RAPIDAPI_KEY=your_rapidapi_key
+   ```
+
+5. **Initialize the database**
+   ```bash
+   python init_db.py
+   ```
+
+## Usage 🚀
+
+1. **Start the application**
+   ```bash
+   python app.py
+   ```
+
+2. **Access the web interface**
+   - Open your browser
+   - Navigate to `http://localhost:5000`
+
+3. **Generate an itinerary**
+   - Enter your destination
+   - Select number of days
+   - Set your budget level
+   - Rate your preferences
+   - Click "Generate Itinerary"
+
+## Project Structure 📁
+```
+travel-itinerary-generator/
+│
+├── app.py                  # Main Flask application
+├── itinerary_generator.py  # Core generation logic
+├── evaluation.py          # Evaluation metrics
+│
+├── templates/
+│   └── index.html         # Web interface
+│
+├── static/
+│   ├── css/              # Stylesheets
+│   └── js/               # JavaScript files
+│
+├── tests/                # Test files
+│   ├── test_api.py
+│   └── test_generator.py
+│
+├── requirements.txt      # Python dependencies
+└── README.md            # This file
+```
+
+## API Reference 📚
+
+### Generate Itinerary
+```http
+POST /generate_itinerary
+```
+Request body:
+```json
+{
+  "location": "New York",
+  "num_days": 3,
+  "budget": 2,
+  "preferences": {
+    "culture": 5,
+    "nature": 4,
+    "food": 3,
+    "shopping": 2,
+    "entertainment": 4
+  }
+}
+```
+
+### Submit Feedback
+```http
+POST /submit_feedback
+```
+Request body:
+```json
+{
+  "rating": 5,
+  "feedback": "Great itinerary!"
+}
+```
+
+
+
+## Error Handling 🐛
+Common error codes:
+- `400`: Invalid request parameters
+- `401`: API authentication failed
+- `404`: Location not found
+- `500`: Server error
+
+## Performance Tips 💡
+1. Use location caching for frequent destinations
+2. Implement rate limiting for API calls
+3. Batch process reviews for better performance
+4. Use concurrent API requests for faster results
+
+## Known Limitations 📝
+- Limited to certain geographical areas
+- Depends on API availability
+- May have slower response times for less popular locations
+- Review analysis limited to English language
+
+## Future Improvements 🔮
+- [ ] Add support for multiple languages
+- [ ] Implement user accounts
+- [ ] Add transportation recommendations
+- [ ] Include weather-based planning
+- [ ] Add booking integration
+
+
+
+## Acknowledgments 🙏
+- Google Places API
+- TripAdvisor API
+- NLTK community
+- Flask framework
+- All contributors
+
